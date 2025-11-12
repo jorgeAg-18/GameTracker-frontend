@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function GameCard({ game, onEdit, onDelete }) {
+  const navigate = useNavigate();
+
+  const handleViewDetail = () => {
+    console.log("Navegando a:", `/games/${game._id}`);
+    navigate(`/games/${game._id}`);
+  };
+
   return (
     <div className="card">
       {game.imageUrl && (
@@ -34,21 +41,28 @@ export default function GameCard({ game, onEdit, onDelete }) {
         <button className="danger" onClick={onDelete} style={{ flex: 1 }}>
           🗑️ Eliminar
         </button>
-        <Link to={`/games/${game._id}`} className="primary" style={{ 
-          flex: 1, 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center",
-          backgroundColor: "#3b82f6",
-          color: "white",
-          padding: "10px 16px",
-          borderRadius: "6px",
-          textDecoration: "none",
-          fontWeight: "600",
-          transition: "background-color 0.3s ease"
-        }}>
+        <button 
+          onClick={handleViewDetail}
+          style={{ 
+            flex: 1, 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center",
+            backgroundColor: "#3b82f6",
+            color: "white",
+            padding: "10px 16px",
+            borderRadius: "6px",
+            textDecoration: "none",
+            fontWeight: "600",
+            transition: "background-color 0.3s ease",
+            cursor: "pointer",
+            border: "none",
+            fontSize: "inherit",
+            fontFamily: "inherit"
+          }}
+        >
           👀 Detalle
-        </Link>
+        </button>
       </div>
     </div>
   );
