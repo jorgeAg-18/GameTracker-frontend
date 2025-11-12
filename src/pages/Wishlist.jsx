@@ -87,17 +87,17 @@ export default function Wishlist() {
   return (
     <div className="container">
       <Link to="/" className="secondary" style={{ display: "inline-block", marginBottom: "20px" }}>
-        ← Volver a la Biblioteca
+        Volver a Biblioteca
       </Link>
 
-      <h1>⭐ Mi Wishlist de Juegos</h1>
-      <p style={{ color: "#9ca3af", marginBottom: "20px" }}>
+      <h1>Wishlist</h1>
+      <p style={{ color: "var(--text-secondary)", marginBottom: "20px" }}>
         Total de juegos deseados: {wishlistGames.length}
       </p>
 
       {/* Formulario para agregar a wishlist */}
       <div className="card">
-        <h3>➕ Agregar a Wishlist</h3>
+        <h3>Agregar a Wishlist</h3>
         <form onSubmit={addToWishlist}>
           <input
             type="text"
@@ -155,8 +155,8 @@ export default function Wishlist() {
 
       {/* Lista de wishlist */}
       {wishlistGames.length === 0 ? (
-        <p style={{ textAlign: "center", color: "#9ca3af", padding: "40px" }}>
-          Tu wishlist está vacía. ¡Agrega algunos juegos que te gustaría jugar! 🎮
+        <p style={{ textAlign: "center", color: "var(--text-secondary)", padding: "40px" }}>
+          Tu wishlist está vacía. Agrega algunos juegos que te gustaría jugar.
         </p>
       ) : (
         <div>
@@ -180,13 +180,13 @@ export default function Wishlist() {
                   </span>
                 </div>
 
-                <div style={{ fontSize: "14px", color: "#9ca3af", marginBottom: "12px" }}>
-                  {game.genre && <p><strong>🎮 Género:</strong> {game.genre}</p>}
-                  {game.platform && <p><strong>💻 Plataforma:</strong> {game.platform}</p>}
+                <div style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "12px" }}>
+                  {game.genre && <p><strong>Género:</strong> {game.genre}</p>}
+                  {game.platform && <p><strong>Plataforma:</strong> {game.platform}</p>}
                   {game.estimatedPrice > 0 && (
-                    <p><strong>💰 Precio estimado:</strong> ${game.estimatedPrice.toFixed(2)}</p>
+                    <p><strong>Precio estimado:</strong> ${game.estimatedPrice.toFixed(2)}</p>
                   )}
-                  {game.notes && <p><strong>📝 Notas:</strong> {game.notes}</p>}
+                  {game.notes && <p><strong>Notas:</strong> {game.notes}</p>}
                 </div>
 
                 <button
@@ -194,7 +194,7 @@ export default function Wishlist() {
                   onClick={() => removeFromWishlist(game._id)}
                   style={{ width: "100%" }}
                 >
-                  🗑️ Remover de Wishlist
+                  Remover
                 </button>
               </div>
             ))}
@@ -205,11 +205,11 @@ export default function Wishlist() {
             <>
               <hr />
               <div className="stat-card">
-                <h3>💰 Presupuesto Total Estimado</h3>
+                <h3>Presupuesto Total Estimado</h3>
                 <div className="value">
                   ${wishlistGames.reduce((sum, g) => sum + (g.estimatedPrice || 0), 0).toFixed(2)}
                 </div>
-                <small style={{ color: "#9ca3af" }}>
+                <small style={{ color: "var(--text-secondary)" }}>
                   {wishlistGames.filter((g) => g.estimatedPrice > 0).length} juegos con precio
                 </small>
               </div>

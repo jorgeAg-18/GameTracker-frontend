@@ -83,44 +83,44 @@ export default function Statistics() {
   return (
     <div className="container">
       <Link to="/" className="secondary" style={{ display: "inline-block", marginBottom: "20px" }}>
-        ← Volver a la Biblioteca
+        Volver a Biblioteca
       </Link>
 
-      <h1>📊 Mis Estadísticas</h1>
+      <h1>Estadísticas</h1>
 
       {/* Tarjetas de estadísticas */}
       <div className="stats-container">
         <div className="stat-card">
-          <h3>📚 Total de Juegos</h3>
+          <h3>Total de Juegos</h3>
           <div className="value">{stats.totalGames}</div>
         </div>
 
         <div className="stat-card">
-          <h3>✅ Completados</h3>
+          <h3>Completados</h3>
           <div className="value">{stats.completedGames}</div>
-          <small style={{ color: "#9ca3af" }}>
+          <small style={{ color: "var(--text-secondary)" }}>
             {stats.totalGames > 0 ? ((stats.completedGames / stats.totalGames) * 100).toFixed(1) : 0}%
           </small>
         </div>
 
         <div className="stat-card">
-          <h3>⏱️ Horas Jugadas</h3>
+          <h3>Horas Jugadas</h3>
           <div className="value">{stats.totalHours}</div>
         </div>
 
         <div className="stat-card">
-          <h3>⭐ Calificación Promedio</h3>
+          <h3>Calificación Promedio</h3>
           <div className="value">{stats.averageRating}</div>
-          <small style={{ color: "#9ca3af" }}>de 5</small>
+          <small style={{ color: "var(--text-secondary)" }}>de 5</small>
         </div>
 
         <div className="stat-card">
-          <h3>🎮 Género Principal</h3>
+          <h3>Género Principal</h3>
           <div className="value" style={{ fontSize: "18px" }}>{stats.topGenre}</div>
         </div>
 
         <div className="stat-card">
-          <h3>💻 Plataforma Principal</h3>
+          <h3>Plataforma Principal</h3>
           <div className="value" style={{ fontSize: "18px" }}>{stats.topPlatform}</div>
         </div>
       </div>
@@ -128,7 +128,7 @@ export default function Statistics() {
       <hr />
 
       {/* Top Games */}
-      <h2>🏆 Mis Juegos Mejor Calificados</h2>
+      <h2>Juegos Mejor Calificados</h2>
       {games.filter((g) => g.rating > 0).length > 0 ? (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "20px" }}>
           {games
@@ -141,19 +141,19 @@ export default function Statistics() {
                   <img src={game.imageUrl} alt={game.title} style={{ width: "100%", height: "150px", objectFit: "cover", borderRadius: "8px", marginBottom: "10px" }} />
                 )}
                 <h4>{game.title}</h4>
-                <p style={{ color: "#3b82f6", fontWeight: "bold" }}>⭐ {game.rating}/5</p>
-                <small style={{ color: "#9ca3af" }}>{game.platform} • {game.genre}</small>
+                <p style={{ color: "#3b82f6", fontWeight: "bold" }}>{game.rating}/5</p>
+                <small style={{ color: "var(--text-secondary)" }}>{game.platform} • {game.genre}</small>
               </div>
             ))}
         </div>
       ) : (
-        <p style={{ color: "#9ca3af" }}>Aún no tienes juegos calificados.</p>
+        <p style={{ color: "var(--text-secondary)" }}>Aún no tienes juegos calificados.</p>
       )}
 
       <hr />
 
       {/* Games by Genre */}
-      <h2>🎮 Juegos por Género</h2>
+      <h2>Juegos por Género</h2>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "20px" }}>
         {Object.entries(
           games.reduce((acc, game) => {
@@ -166,7 +166,7 @@ export default function Statistics() {
           <div key={genre} className="stat-card">
             <h3>{genre}</h3>
             <div className="value">{count}</div>
-            <small style={{ color: "#9ca3af" }}>juegos</small>
+            <small style={{ color: "var(--text-secondary)" }}>juegos</small>
           </div>
         ))}
       </div>
@@ -174,7 +174,7 @@ export default function Statistics() {
       <hr />
 
       {/* Games by Platform */}
-      <h2>💻 Juegos por Plataforma</h2>
+      <h2>Juegos por Plataforma</h2>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "20px" }}>
         {Object.entries(
           games.reduce((acc, game) => {
@@ -187,7 +187,7 @@ export default function Statistics() {
           <div key={platform} className="stat-card">
             <h3>{platform}</h3>
             <div className="value">{count}</div>
-            <small style={{ color: "#9ca3af" }}>juegos</small>
+            <small style={{ color: "var(--text-secondary)" }}>juegos</small>
           </div>
         ))}
       </div>

@@ -80,7 +80,7 @@ export default function GameDetail() {
   return (
     <div className="container">
       <button onClick={handleBack} className="btn secondary" style={{ marginBottom: "20px" }}>
-        ← Volver a la Biblioteca
+        Volver
       </button>
 
       <div className="card">
@@ -102,16 +102,16 @@ export default function GameDetail() {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px", marginBottom: "20px" }}>
           <div>
-            <p><strong>🎮 Plataforma:</strong> {game.platform || "N/A"}</p>
-            <p><strong>🏷️ Género:</strong> {game.genre || "N/A"}</p>
+            <p><strong>Plataforma:</strong> {game.platform || "N/A"}</p>
+            <p><strong>Género:</strong> {game.genre || "N/A"}</p>
           </div>
           <div>
-            <p><strong>⏱️ Horas jugadas:</strong> {game.hoursPlayed}</p>
-            <p><strong>⭐ Calificación:</strong> {game.rating}/5</p>
+            <p><strong>Horas jugadas:</strong> {game.hoursPlayed}</p>
+            <p><strong>Calificación:</strong> {game.rating}/5</p>
           </div>
           <div>
             <p>
-              <strong>✅ Estado:</strong>{" "}
+              <strong>Estado:</strong>{" "}
               <span
                 style={{
                   backgroundColor: game.completed ? "#10b981" : "#f59e0b",
@@ -130,7 +130,7 @@ export default function GameDetail() {
 
       <hr />
 
-      <h2>📝 Reseñas</h2>
+      <h2>Reseñas</h2>
       <ReviewForm gameId={id} onReviewAdded={handleReviewAdded} />
       <ReviewList gameId={id} key={reviewCount} />
     </div>

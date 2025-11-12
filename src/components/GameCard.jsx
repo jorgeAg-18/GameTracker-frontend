@@ -26,20 +26,20 @@ export default function GameCard({ game, onEdit, onDelete }) {
 
       <h3 style={{ marginBottom: "10px" }}>{game.title}</h3>
 
-      <div style={{ fontSize: "14px", color: "#9ca3af", marginBottom: "12px" }}>
-        <p><strong>🎮 Plataforma:</strong> {game.platform || "N/A"}</p>
-        <p><strong>🏷️ Género:</strong> {game.genre || "N/A"}</p>
-        <p><strong>⏱️ Horas:</strong> {game.hoursPlayed}</p>
-        <p><strong>⭐ Calificación:</strong> {game.rating}/5</p>
-        <p><strong>✅ Estado:</strong> {game.completed ? "Completado" : "En progreso"}</p>
+      <div style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "12px" }}>
+        <p><strong>Plataforma:</strong> {game.platform || "N/A"}</p>
+        <p><strong>Género:</strong> {game.genre || "N/A"}</p>
+        <p><strong>Horas:</strong> {game.hoursPlayed}</p>
+        <p><strong>Calificación:</strong> {game.rating}/5</p>
+        <p><strong>Estado:</strong> {game.completed ? "Completado" : "En progreso"}</p>
       </div>
 
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
         <button className="primary" onClick={onEdit} style={{ flex: 1 }}>
-          ✏️ Editar
+          Editar
         </button>
         <button className="danger" onClick={onDelete} style={{ flex: 1 }}>
-          🗑️ Eliminar
+          Eliminar
         </button>
         <button 
           onClick={handleViewDetail}
@@ -61,7 +61,7 @@ export default function GameCard({ game, onEdit, onDelete }) {
             fontFamily: "inherit"
           }}
         >
-          👀 Detalle
+          Ver Detalles
         </button>
       </div>
     </div>

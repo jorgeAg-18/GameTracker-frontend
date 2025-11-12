@@ -42,11 +42,11 @@ export default function ReviewForm({ gameId, onReviewAdded }) {
 
   return (
     <form onSubmit={handleSubmit} className="card" style={{ marginBottom: "20px" }}>
-      <h3>📝 Agregar Reseña</h3>
+      <h3>Agregar Reseña</h3>
       
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "15px", marginBottom: "15px" }}>
         <div>
-          <label><strong>⭐ Calificación</strong></label>
+          <label><strong>Calificación</strong></label>
           <input
             type="number"
             name="rating"
@@ -59,7 +59,7 @@ export default function ReviewForm({ gameId, onReviewAdded }) {
         </div>
 
         <div>
-          <label><strong>⏱️ Horas Jugadas</strong></label>
+          <label><strong>Horas Jugadas</strong></label>
           <input
             type="number"
             name="hoursPlayed"
@@ -70,7 +70,7 @@ export default function ReviewForm({ gameId, onReviewAdded }) {
         </div>
 
         <div>
-          <label><strong>🎯 Dificultad</strong></label>
+          <label><strong>Dificultad</strong></label>
           <select name="difficulty" value={form.difficulty} onChange={handleChange}>
             <option>Fácil</option>
             <option>Media</option>
@@ -86,20 +86,20 @@ export default function ReviewForm({ gameId, onReviewAdded }) {
           checked={form.recommend}
           onChange={handleChange}
         />
-        <strong>{form.recommend ? "✅ Recomiendo este juego" : "🚫 No recomiendo este juego"}</strong>
+        <strong>{form.recommend ? "Recomiendo este juego" : "No recomiendo este juego"}</strong>
       </label>
 
-      <label><strong>💬 Tu Reseña</strong></label>
+      <label><strong>Tu Reseña</strong></label>
       <textarea
         name="reviewText"
         value={form.reviewText}
         onChange={handleChange}
-        placeholder="Escribe tu reseña detallada aquí... ¿Qué te pareció el juego?"
+        placeholder="Escribe tu reseña detallada aquí..."
         rows="5"
       />
 
       <button className="primary" type="submit" disabled={loading}>
-        {loading ? "Publicando..." : "📤 Publicar Reseña"}
+        {loading ? "Publicando..." : "Publicar Reseña"}
       </button>
     </form>
   );

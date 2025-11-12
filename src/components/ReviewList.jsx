@@ -21,9 +21,9 @@ export default function ReviewList({ gameId }) {
     getReviews();
   }, [gameId]);
 
-  if (loading) return <p style={{ color: "#9ca3af" }}>Cargando reseñas...</p>;
+  if (loading) return <p style={{ color: "var(--text-secondary)" }}>Cargando reseñas...</p>;
 
-  if (!reviews.length) return <p style={{ color: "#9ca3af", fontStyle: "italic" }}>No hay reseñas aún. ¡Sé el primero en reseñar! 📝</p>;
+  if (!reviews.length) return <p style={{ color: "var(--text-secondary)", fontStyle: "italic" }}>No hay reseñas aún. Sé el primero en reseñar</p>;
 
   return (
     <div>
@@ -31,9 +31,9 @@ export default function ReviewList({ gameId }) {
         <div key={r._id} className="review">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: "10px" }}>
             <div>
-              <small style={{ display: "flex", gap: "15px", color: "#f3f4f6" }}>
-                <span><strong>⭐ Calificación:</strong> {r.rating}/5</span>
-                <span><strong>🎯 Dificultad:</strong> {r.difficulty}</span>
+              <small style={{ display: "flex", gap: "15px", color: "var(--text-primary)" }}>
+                <span><strong>Calificación:</strong> {r.rating}/5</span>
+                <span><strong>Dificultad:</strong> {r.difficulty}</span>
               </small>
             </div>
             <small style={{ 
@@ -43,14 +43,14 @@ export default function ReviewList({ gameId }) {
               borderRadius: "4px",
               fontWeight: "bold"
             }}>
-              {r.recommend ? "✅ Recomendado" : "🚫 No Recomendado"}
+              {r.recommend ? "Recomendado" : "No Recomendado"}
             </small>
           </div>
 
           <p style={{ marginBottom: "10px", lineHeight: "1.6" }}>{r.reviewText}</p>
 
-          <small style={{ color: "#9ca3af", display: "block" }}>
-            ⏱️ Horas jugadas: {r.hoursPlayed}
+          <small style={{ color: "var(--text-secondary)", display: "block" }}>
+            Horas jugadas: {r.hoursPlayed}
           </small>
         </div>
       ))}

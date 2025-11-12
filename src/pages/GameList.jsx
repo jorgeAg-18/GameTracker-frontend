@@ -90,14 +90,14 @@ export default function GameList() {
 
   return (
     <div className="container">
-      <h1>🎮 Mi Biblioteca de Juegos</h1>
-      <p style={{ color: "#9ca3af", marginBottom: "20px" }}>
+      <h1>Biblioteca de Juegos</h1>
+      <p style={{ color: "var(--text-secondary)", marginBottom: "20px" }}>
         Total: {games.length} juegos | Completados: {games.filter((g) => g.completed).length}
       </p>
 
       {/* Formulario para agregar juego */}
       <div className="card">
-        <h3>➕ Agregar Nuevo Juego</h3>
+        <h3>Agregar Nuevo Juego</h3>
         <GameForm onSubmit={createGame} />
       </div>
 
@@ -106,7 +106,7 @@ export default function GameList() {
       {/* Filtros */}
       <div className="filters">
         <div>
-          <label>🔍 Buscar</label>
+          <label>Buscar</label>
           <input
             type="text"
             placeholder="Buscar por título..."
@@ -116,7 +116,7 @@ export default function GameList() {
         </div>
 
         <div>
-          <label>🎮 Género</label>
+          <label>Género</label>
           <select value={filterGenre} onChange={(e) => setFilterGenre(e.target.value)}>
             <option value="">Todos los géneros</option>
             {genres.map((g) => (
@@ -128,7 +128,7 @@ export default function GameList() {
         </div>
 
         <div>
-          <label>💻 Plataforma</label>
+          <label>Plataforma</label>
           <select value={filterPlatform} onChange={(e) => setFilterPlatform(e.target.value)}>
             <option value="">Todas las plataformas</option>
             {platforms.map((p) => (
@@ -140,7 +140,7 @@ export default function GameList() {
         </div>
 
         <div>
-          <label>✅ Estado</label>
+          <label>Estado</label>
           <select value={filterCompleted} onChange={(e) => setFilterCompleted(e.target.value)}>
             <option value="">Todos</option>
             <option value="completed">Completados</option>
@@ -149,7 +149,7 @@ export default function GameList() {
         </div>
 
         <div>
-          <label>📊 Ordenar por</label>
+          <label>Ordenar por</label>
           <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
             <option value="title">Título</option>
             <option value="rating">Calificación</option>
@@ -163,8 +163,8 @@ export default function GameList() {
 
       {/* Lista de juegos */}
       {filteredGames.length === 0 ? (
-        <p style={{ textAlign: "center", color: "#9ca3af", padding: "40px" }}>
-          No se encontraron juegos. 😢
+        <p style={{ textAlign: "center", color: "var(--text-secondary)", padding: "40px" }}>
+          No se encontraron juegos.
         </p>
       ) : (
         <div className="games-grid">
@@ -182,7 +182,7 @@ export default function GameList() {
       {/* Formulario de edición */}
       {editing && (
         <div className="card" style={{ marginTop: "30px", borderLeft: "4px solid #3b82f6" }}>
-          <h3>✏️ Editando: {editing.title}</h3>
+          <h3>Editando: {editing.title}</h3>
           <GameForm
             initial={editing}
             onSubmit={(data) => updateGame(editing._id, data)}

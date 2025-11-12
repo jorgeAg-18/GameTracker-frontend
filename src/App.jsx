@@ -11,10 +11,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <nav>
-        <Link to="/" className="logo">🎮 GameTracker</Link>
+        <Link to="/" className="logo">GameTracker</Link>
         <Link to="/">Biblioteca</Link>
-        <Link to="/statistics">📊 Estadísticas</Link>
-        <Link to="/wishlist">⭐ Wishlist</Link>
+        <Link to="/statistics">Estadísticas</Link>
+        <Link to="/wishlist">Wishlist</Link>
         <button 
           className="theme-toggle" 
           onClick={() => setDarkMode(!darkMode)}

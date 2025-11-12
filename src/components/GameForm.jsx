@@ -50,43 +50,59 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
       {/* Fila 1: Título e Imagen */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "15px" }}>
         <div>
-          <label style={{ display: "block", marginBottom: "8px", fontWeight: "600", color: "#e5e7eb" }}>
-            📖 Título del Juego *
+          <label style={{ 
+            display: "block", 
+            marginBottom: "8px", 
+            fontWeight: "600", 
+            color: "var(--text-primary)",
+            fontSize: "14px",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px"
+          }}>
+            Título
           </label>
           <input 
             name="title" 
             value={form.title} 
             onChange={handleChange} 
-            placeholder="Ej: Elden Ring" 
+            placeholder="Ingresa el título del juego" 
             required 
             style={{
               width: "100%",
               padding: "12px",
-              border: "2px solid #374151",
+              border: "2px solid var(--border-color)",
               borderRadius: "8px",
-              backgroundColor: "#1f2937",
-              color: "#f3f4f6",
+              backgroundColor: "var(--input-bg)",
+              color: "var(--text-primary)",
               fontSize: "14px",
               transition: "all 0.3s ease"
             }}
           />
         </div>
         <div>
-          <label style={{ display: "block", marginBottom: "8px", fontWeight: "600", color: "#e5e7eb" }}>
-            🖼️ URL de Portada (opcional)
+          <label style={{ 
+            display: "block", 
+            marginBottom: "8px", 
+            fontWeight: "600", 
+            color: "var(--text-primary)",
+            fontSize: "14px",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px"
+          }}>
+            URL de Portada
           </label>
           <input 
             name="imageUrl" 
             value={form.imageUrl} 
             onChange={handleChange} 
-            placeholder="https://..." 
+            placeholder="https://ejemplo.com/imagen.jpg" 
             style={{
               width: "100%",
               padding: "12px",
-              border: "2px solid #374151",
+              border: "2px solid var(--border-color)",
               borderRadius: "8px",
-              backgroundColor: "#1f2937",
-              color: "#f3f4f6",
+              backgroundColor: "var(--input-bg)",
+              color: "var(--text-primary)",
               fontSize: "14px",
               transition: "all 0.3s ease"
             }}
@@ -97,8 +113,16 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
       {/* Fila 2: Plataforma y Género */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "15px" }}>
         <div>
-          <label style={{ display: "block", marginBottom: "8px", fontWeight: "600", color: "#e5e7eb" }}>
-            🎮 Plataforma
+          <label style={{ 
+            display: "block", 
+            marginBottom: "8px", 
+            fontWeight: "600", 
+            color: "var(--text-primary)",
+            fontSize: "14px",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px"
+          }}>
+            Plataforma
           </label>
           <input 
             name="platform" 
@@ -108,18 +132,26 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
             style={{
               width: "100%",
               padding: "12px",
-              border: "2px solid #374151",
+              border: "2px solid var(--border-color)",
               borderRadius: "8px",
-              backgroundColor: "#1f2937",
-              color: "#f3f4f6",
+              backgroundColor: "var(--input-bg)",
+              color: "var(--text-primary)",
               fontSize: "14px",
               transition: "all 0.3s ease"
             }}
           />
         </div>
         <div>
-          <label style={{ display: "block", marginBottom: "8px", fontWeight: "600", color: "#e5e7eb" }}>
-            🏷️ Género
+          <label style={{ 
+            display: "block", 
+            marginBottom: "8px", 
+            fontWeight: "600", 
+            color: "var(--text-primary)",
+            fontSize: "14px",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px"
+          }}>
+            Género
           </label>
           <input 
             name="genre" 
@@ -129,10 +161,10 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
             style={{
               width: "100%",
               padding: "12px",
-              border: "2px solid #374151",
+              border: "2px solid var(--border-color)",
               borderRadius: "8px",
-              backgroundColor: "#1f2937",
-              color: "#f3f4f6",
+              backgroundColor: "var(--input-bg)",
+              color: "var(--text-primary)",
               fontSize: "14px",
               transition: "all 0.3s ease"
             }}
@@ -143,8 +175,16 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
       {/* Fila 3: Horas y Calificación */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "15px" }}>
         <div>
-          <label style={{ display: "block", marginBottom: "8px", fontWeight: "600", color: "#e5e7eb" }}>
-            ⏱️ Horas Jugadas
+          <label style={{ 
+            display: "block", 
+            marginBottom: "8px", 
+            fontWeight: "600", 
+            color: "var(--text-primary)",
+            fontSize: "14px",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px"
+          }}>
+            Horas Jugadas
           </label>
           <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
             <input 
@@ -154,11 +194,11 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
               onChange={handleChange} 
               min="0" 
               max="1000"
+              className="range-slider"
               style={{
                 width: "100%",
                 height: "8px",
                 borderRadius: "5px",
-                background: "linear-gradient(to right, #3b82f6 0%, #3b82f6 " + (form.hoursPlayed / 10) + "%, #374151 " + (form.hoursPlayed / 10) + "%, #374151 100%)",
                 outline: "none",
                 cursor: "pointer",
                 WebkitAppearance: "none",
@@ -181,8 +221,16 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
           </div>
         </div>
         <div>
-          <label style={{ display: "block", marginBottom: "8px", fontWeight: "600", color: "#e5e7eb" }}>
-            ⭐ Calificación
+          <label style={{ 
+            display: "block", 
+            marginBottom: "8px", 
+            fontWeight: "600", 
+            color: "var(--text-primary)",
+            fontSize: "14px",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px"
+          }}>
+            Calificación
           </label>
           <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
             <input 
@@ -193,11 +241,11 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
               min="0" 
               max="5" 
               step="0.5"
+              className="range-slider-rating"
               style={{
                 flex: 1,
                 height: "8px",
                 borderRadius: "5px",
-                background: "linear-gradient(to right, #fbbf24 0%, #fbbf24 " + (form.rating * 20) + "%, #374151 " + (form.rating * 20) + "%, #374151 100%)",
                 outline: "none",
                 cursor: "pointer",
                 WebkitAppearance: "none",
@@ -206,7 +254,7 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
             />
             <span style={{
               backgroundColor: "#fbbf24",
-              color: "#000",
+              color: "#1f2937",
               padding: "6px 12px",
               borderRadius: "6px",
               fontSize: "14px",
@@ -226,9 +274,9 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
         alignItems: "center",
         gap: "12px",
         padding: "16px",
-        backgroundColor: "#111827",
+        backgroundColor: "var(--card-bg)",
         borderRadius: "8px",
-        border: "2px solid #374151",
+        border: "2px solid var(--border-color)",
         cursor: "pointer",
         transition: "all 0.3s ease"
       }}
@@ -237,7 +285,7 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
         <div style={{
           width: "50px",
           height: "28px",
-          backgroundColor: form.completed ? "#10b981" : "#6b7280",
+          backgroundColor: form.completed ? "#10b981" : "var(--border-color)",
           borderRadius: "14px",
           display: "flex",
           alignItems: "center",
@@ -253,8 +301,11 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
             transition: "transform 0.3s ease"
           }} />
         </div>
-        <span style={{ fontWeight: "600", color: "#e5e7eb" }}>
-          {form.completed ? "✅ Juego Completado" : "🎮 En Progreso"}
+        <span style={{ 
+          fontWeight: "600", 
+          color: "var(--text-primary)"
+        }}>
+          {form.completed ? "Completado" : "En Progreso"}
         </span>
       </div>
 
@@ -266,16 +317,16 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
             onClick={onCancel}
             style={{
               padding: "12px 24px",
-              backgroundColor: "#6b7280",
-              color: "white",
+              backgroundColor: "var(--secondary-btn-bg)",
+              color: "var(--secondary-btn-text)",
               border: "none",
               borderRadius: "8px",
               fontWeight: "600",
               cursor: "pointer",
               transition: "all 0.3s ease"
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = "#4b5563"}
-            onMouseLeave={(e) => e.target.style.backgroundColor = "#6b7280"}
+            onMouseEnter={(e) => e.target.style.backgroundColor = "var(--secondary-btn-hover)"}
+            onMouseLeave={(e) => e.target.style.backgroundColor = "var(--secondary-btn-bg)"}
           >
             Cancelar
           </button>
@@ -295,7 +346,7 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
           onMouseEnter={(e) => e.target.style.backgroundColor = "#2563eb"}
           onMouseLeave={(e) => e.target.style.backgroundColor = "#3b82f6"}
         >
-          {initial._id ? "✏️ Actualizar" : "➕ Guardar"}
+          {initial._id ? "Actualizar" : "Guardar"}
         </button>
       </div>
     </form>
