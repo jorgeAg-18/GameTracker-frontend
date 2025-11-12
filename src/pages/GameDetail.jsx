@@ -1,40 +1,87 @@
-import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState, useCallback } from "react";
 import api from "../services/api";
 import ReviewList from "../components/ReviewList";
 import ReviewForm from "../components/ReviewForm";
 
 export default function GameDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [game, setGame] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [reviewCount, setReviewCount] = useState(0);
 
-  const getGame = async () => {
-    try {
-      setLoading(true);
-      const res = await api.get(`/games/${id}`);
-      setGame(res.data);
-    } catch (error) {
-      console.error(error);
-      alert("Error al cargar el juego");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  // Cargar juego inicial
   useEffect(() => {
-    getGame();
+    const loadGame = async () => {
+      if (!id) return;
+      
+      try {
+        setLoading(true);
+        setError(null);
+        console.log("Cargando juego con ID:", id);
+        const res = await api.get(`/games/${id}`);
+        console.log("Juego cargado:", res.data);
+        setGame(res.data);
+      } catch (error) {
+        console.error("Error al obtener el juego:", error);
+        setError("Error al cargar el juego. Por favor, intenta nuevamente.");
+        setGame(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadGame();
   }, [id]);
 
-  if (loading) return <div className="container">Cargando juego...</div>;
+  // Función para recargar las reseñas cuando se agrega una nueva
+  const handleReviewAdded = useCallback(() => {
+    console.log("Reseña agregada, recargando lista de reseñas");
+    setReviewCount(prev => prev + 1);
+  }, []);
 
-  if (!game) return <div className="container">Juego no encontrado</div>;
+  const handleBack = () => {
+    navigate("/");
+  };
+
+  if (loading) {
+    return (
+      <div className="container" style={{ textAlign: "center", padding: "60px 20px" }}>
+        <div className="spinner" style={{ margin: "0 auto", marginBottom: "20px" }}></div>
+        <p>Cargando juego...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container">
+        <button onClick={handleBack} className="btn secondary" style={{ marginBottom: "20px" }}>
+          ← Volver a la Biblioteca
+        </button>
+        <div className="alert error">{error}</div>
+      </div>
+    );
+  }
+
+  if (!game) {
+    return (
+      <div className="container">
+        <button onClick={handleBack} className="btn secondary" style={{ marginBottom: "20px" }}>
+          ← Volver a la Biblioteca
+        </button>
+        <div className="alert warning">Juego no encontrado</div>
+      </div>
+    );
+  }
 
   return (
     <div className="container">
-      <Link to="/" className="secondary" style={{ display: "inline-block", marginBottom: "20px" }}>
+      <button onClick={handleBack} className="btn secondary" style={{ marginBottom: "20px" }}>
         ← Volver a la Biblioteca
-      </Link>
+      </button>
 
       <div className="card">
         {game.imageUrl && (
@@ -84,8 +131,8 @@ export default function GameDetail() {
       <hr />
 
       <h2>📝 Reseñas</h2>
-      <ReviewForm gameId={id} onReviewAdded={getGame} />
-      <ReviewList gameId={id} />
+      <ReviewForm gameId={id} onReviewAdded={handleReviewAdded} />
+      <ReviewList gameId={id} key={reviewCount} />
     </div>
   );
 }
