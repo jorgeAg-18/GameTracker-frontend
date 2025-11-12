@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export default function GameForm({ onSubmit, initial = {}, onCancel }) {
   const [form, setForm] = useState({
@@ -12,9 +12,12 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
     ...initial,
   });
 
+  // Memoizar inicial para evitar ciclos infinitos
+  const memoizedInitial = useMemo(() => initial, [initial._id, initial.title, initial.platform, initial.genre]);
+
   useEffect(() => {
-    setForm((prev) => ({ ...prev, ...initial }));
-  }, [initial]);
+    setForm((prev) => ({ ...prev, ...memoizedInitial }));
+  }, [memoizedInitial._id]); // Solo depender del ID
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
