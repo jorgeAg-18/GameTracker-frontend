@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Toast from "../components/Toast";
 
 export default function Wishlist() {
+  const navigate = useNavigate();
   const [wishlistGames, setWishlistGames] = useState([]);
   const [newGame, setNewGame] = useState({
     title: "",
@@ -12,6 +14,11 @@ export default function Wishlist() {
     priority: "media",
     notes: "",
   });
+  const [toast, setToast] = useState(null);
+
+  const handleBack = () => {
+    navigate("/");
+  };
 
   const fetchWishlist = async () => {
     try {
@@ -29,7 +36,7 @@ export default function Wishlist() {
   const addToWishlist = async (e) => {
     e.preventDefault();
     if (!newGame.title.trim()) {
-      alert("El título es requerido");
+      setToast({ message: "El título es requerido", type: "warning" });
       return;
     }
     try {
@@ -43,10 +50,10 @@ export default function Wishlist() {
         notes: "",
       });
       fetchWishlist();
-      alert("Juego agregado a la wishlist");
+      setToast({ message: "Juego agregado a la wishlist", type: "success" });
     } catch (error) {
       console.error("Error al agregar a wishlist:", error);
-      alert("Error al agregar a la wishlist");
+      setToast({ message: "Error al agregar a la wishlist", type: "error" });
     }
   };
 
@@ -55,10 +62,10 @@ export default function Wishlist() {
       try {
         await api.delete(`/wishlist/${id}`);
         fetchWishlist();
-        alert("Juego removido de la wishlist");
+        setToast({ message: "Juego removido de la wishlist", type: "success" });
       } catch (error) {
         console.error("Error al remover de wishlist:", error);
-        alert("Error al remover de la wishlist");
+        setToast({ message: "Error al remover de la wishlist", type: "error" });
       }
     }
   };
@@ -86,14 +93,19 @@ export default function Wishlist() {
 
   return (
     <div className="container">
-      <Link to="/" className="secondary" style={{ display: "inline-block", marginBottom: "20px" }}>
-        Volver a Biblioteca
-      </Link>
+      <div style={{ marginBottom: "30px" }}>
+        <button onClick={handleBack} className="btn secondary" style={{ marginBottom: "20px" }}>
+          ← Volver a Biblioteca
+        </button>
 
-      <h1>Wishlist</h1>
-      <p style={{ color: "var(--text-secondary)", marginBottom: "20px" }}>
-        Total de juegos deseados: {wishlistGames.length}
-      </p>
+        <h1>Wishlist</h1>
+        <p style={{ color: "var(--text-secondary)", marginBottom: "10px", fontSize: "15px", lineHeight: "1.6" }}>
+          Tu lista de deseos personal. Agrega aquí los juegos que quieres comprar en el futuro, establece su prioridad y mantén notas sobre ellos. Organiza tus compras pendientes y nunca pierdas de vista esos títulos que esperas conseguir.
+        </p>
+        <p style={{ color: "var(--text-primary)", marginTop: "10px", fontWeight: "600" }}>
+          Total de juegos deseados: {wishlistGames.length}
+        </p>
+      </div>
 
       {/* Formulario para agregar a wishlist */}
       <div className="card">
@@ -216,6 +228,15 @@ export default function Wishlist() {
             </>
           )}
         </div>
+      )}
+
+      {/* Toast Notification */}
+      {toast && (
+        <Toast 
+          message={toast.message} 
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
       )}
     </div>
   );
