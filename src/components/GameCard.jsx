@@ -35,33 +35,29 @@ export default function GameCard({ game, onEdit, onDelete }) {
       </div>
 
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-        <button className="primary" onClick={onEdit} style={{ flex: 1 }}>
+        <button 
+          className="primary" 
+          onClick={onEdit} 
+          style={{ flex: 1, fontSize: "13px" }}
+        >
           Editar
         </button>
-        <button className="danger" onClick={onDelete} style={{ flex: 1 }}>
+        <button 
+          className="danger" 
+          onClick={onDelete} 
+          style={{ flex: 1, fontSize: "13px" }}
+        >
           Eliminar
         </button>
         <button 
+          className="info"
           onClick={handleViewDetail}
           style={{ 
             flex: 1, 
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "center",
-            backgroundColor: "#3b82f6",
-            color: "white",
-            padding: "10px 16px",
-            borderRadius: "6px",
-            textDecoration: "none",
-            fontWeight: "600",
-            transition: "background-color 0.3s ease",
-            cursor: "pointer",
-            border: "none",
-            fontSize: "inherit",
-            fontFamily: "inherit"
+            fontSize: "13px"
           }}
         >
-          Ver Detalles
+          Detalles
         </button>
       </div>
     </div>
