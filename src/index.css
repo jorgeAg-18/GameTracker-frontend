@@ -121,7 +121,7 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-nav a.logo {
+nav .logo {
   font-size: 22px;
   margin-right: auto;
   color: white;
@@ -130,7 +130,7 @@ nav a.logo {
   transition: all 0.3s ease;
 }
 
-nav a.logo:hover {
+nav .logo:hover {
   transform: scale(1.08);
   color: var(--primary);
 }
