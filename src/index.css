@@ -195,17 +195,18 @@ nav a.logo:hover {
 .hero-decoration {
   position: relative;
   z-index: 1;
-  flex: 0 0 380px;
+  flex: 0 0 420px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
+  height: 100%;
 }
 
 .gamepad-icon {
-  width: 380px;
-  height: 500px;
-  object-fit: cover;
+  width: 420px;
+  height: auto;
+  max-height: 90%;
+  object-fit: contain;
   object-position: center;
   border-radius: 20px;
   box-shadow: 0 40px 80px rgba(59, 130, 246, 0.4),
@@ -960,13 +961,14 @@ a:hover {
   }
 
   .hero-decoration {
-    flex: 0 0 300px;
-    height: 380px;
+    flex: 0 0 100%;
+    height: 280px;
   }
 
   .gamepad-icon {
-    width: 300px;
-    height: 380px;
+    width: auto;
+    height: 280px;
+    max-height: none;
   }
 
   .hero-title {
