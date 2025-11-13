@@ -191,6 +191,7 @@ nav a.logo:hover {
 .gamepad-icon {
   width: 280px;
   height: 280px;
+  object-fit: contain;
   filter: drop-shadow(0 20px 40px rgba(59, 130, 246, 0.3));
   animation: float 3s ease-in-out infinite;
 }
