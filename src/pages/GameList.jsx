@@ -99,8 +99,8 @@ export default function GameList() {
   const platforms = [...new Set(games.map((g) => g.platform).filter(Boolean))];
 
   return (
-    <div className="container">
-      {/* Hero Section / Portada */}
+    <>
+      {/* Hero Section / Portada - A pantalla completa */}
       <div className="hero-section">
         <div className="hero-content">
           <h1 className="hero-title">Tu Biblioteca de Juegos</h1>
@@ -132,17 +132,19 @@ export default function GameList() {
         </div>
       </div>
 
-      {/* Formulario para agregar juego */}
-      <div className="card">
-        <h3>Agregar Nuevo Juego</h3>
-        <GameForm onSubmit={createGame} />
-      </div>
+      {/* Contenido principal */}
+      <div className="container">
+        {/* Formulario para agregar juego */}
+        <div className="card">
+          <h3>Agregar Nuevo Juego</h3>
+          <GameForm onSubmit={createGame} />
+        </div>
 
-      <hr />
+        <hr />
 
-      {/* Filtros */}
-      <div className="filters">
-        <div>
+        {/* Filtros */}
+        <div className="filters">
+          <div>
           <label>Buscar</label>
           <input
             type="text"
@@ -236,6 +238,7 @@ export default function GameList() {
           onClose={() => setToast(null)}
         />
       )}
-    </div>
+      </div>
+    </>
   );
 }
