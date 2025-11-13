@@ -125,7 +125,7 @@ export default function GameList() {
         </div>
         <div className="hero-decoration">
           <img 
-            src="/images/gamepad.png" 
+            src="/images/gamepad.jpg" 
             alt="Controlador de videojuego"
             className="gamepad-icon"
           />
