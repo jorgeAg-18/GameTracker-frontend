@@ -12,16 +12,24 @@ export default function App() {
     <BrowserRouter>
       <nav>
         <Link to="/" className="logo">GameTracker</Link>
-        <Link to="/">Biblioteca</Link>
-        <Link to="/statistics">Estadísticas</Link>
-        <Link to="/wishlist">Wishlist</Link>
-        <button 
-          className="theme-toggle" 
-          onClick={() => setDarkMode(!darkMode)}
-          title={darkMode ? "Modo Claro" : "Modo Oscuro"}
-        >
-          {darkMode ? "☀️" : "🌙"}
-        </button>
+        
+        <div className="nav-links">
+          <Link to="/">Biblioteca</Link>
+          <Link to="/statistics">Estadísticas</Link>
+          <Link to="/wishlist">Wishlist</Link>
+        </div>
+        
+        {/* Toggle Switch Moderno */}
+        <div className="theme-toggle-wrapper">
+          <label className="theme-toggle-switch">
+            <input 
+              type="checkbox" 
+              checked={!darkMode}
+              onChange={() => setDarkMode(!darkMode)}
+            />
+            <span className="toggle-slider"></span>
+          </label>
+        </div>
       </nav>
       
       <div className={darkMode ? "dark-mode" : "light-mode"}>
