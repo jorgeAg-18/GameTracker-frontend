@@ -124,43 +124,11 @@ export default function GameList() {
           </div>
         </div>
         <div className="hero-decoration">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="gamepad-icon">
-            {/* Controlador de juego estilizado */}
-            <defs>
-              <linearGradient id="gradientLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{stopColor: "#ec4899", stopOpacity: 1}} />
-                <stop offset="100%" style={{stopColor: "#a855f7", stopOpacity: 1}} />
-              </linearGradient>
-              <linearGradient id="gradientRight" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{stopColor: "#06b6d4", stopOpacity: 1}} />
-                <stop offset="100%" style={{stopColor: "#3b82f6", stopOpacity: 1}} />
-              </linearGradient>
-            </defs>
-            
-            {/* Lado izquierdo del controlador */}
-            <ellipse cx="60" cy="100" rx="35" ry="45" fill="url(#gradientLeft)" opacity="0.9"/>
-            
-            {/* Lado derecho del controlador */}
-            <ellipse cx="140" cy="100" rx="35" ry="45" fill="url(#gradientRight)" opacity="0.9"/>
-            
-            {/* Centro conectivo */}
-            <rect x="85" y="85" width="30" height="30" rx="5" fill="#06b6d4" opacity="0.8"/>
-            
-            {/* Botones izquierda (D-Pad) */}
-            <circle cx="45" cy="80" r="5" fill="#fbbf24" opacity="0.7"/>
-            <circle cx="75" cy="85" r="5" fill="#f87171" opacity="0.7"/>
-            <circle cx="50" cy="110" r="5" fill="#60a5fa" opacity="0.7"/>
-            
-            {/* Botones derecha */}
-            <circle cx="145" cy="75" r="6" fill="#06b6d4" opacity="0.8"/>
-            <circle cx="165" cy="85" r="6" fill="#ec4899" opacity="0.8"/>
-            <circle cx="140" cy="115" r="6" fill="#10b981" opacity="0.8"/>
-            <circle cx="115" cy="90" r="6" fill="#f59e0b" opacity="0.8"/>
-            
-            {/* Efecto de brillo */}
-            <circle cx="70" cy="70" r="8" fill="white" opacity="0.2"/>
-            <circle cx="150" cy="130" r="12" fill="white" opacity="0.15"/>
-          </svg>
+          <img 
+            src="/images/gamepad.png" 
+            alt="Controlador de videojuego"
+            className="gamepad-icon"
+          />
         </div>
       </div>
 
