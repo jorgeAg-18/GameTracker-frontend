@@ -8,10 +8,16 @@ import { useState } from "react";
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <BrowserRouter>
       <nav>
-        <Link to="/" className="logo">GameTracker</Link>
+        <button onClick={handleLogoClick} className="logo" style={{ background: "none", border: "none", cursor: "pointer", padding: "0" }}>
+          GameTracker
+        </button>
         
         <div className="nav-links">
           <Link to="/">Biblioteca</Link>
