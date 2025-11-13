@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Statistics() {
+  const navigate = useNavigate();
   const [games, setGames] = useState([]);
   const [stats, setStats] = useState({
     totalGames: 0,
@@ -12,6 +13,10 @@ export default function Statistics() {
     topGenre: "N/A",
     topPlatform: "N/A",
   });
+
+  const handleBack = () => {
+    navigate("/");
+  };
 
   const fetchGames = async () => {
     try {
@@ -82,9 +87,9 @@ export default function Statistics() {
 
   return (
     <div className="container">
-      <Link to="/" className="secondary" style={{ display: "inline-block", marginBottom: "20px" }}>
-        Volver a Biblioteca
-      </Link>
+      <button onClick={handleBack} className="btn secondary" style={{ marginBottom: "20px" }}>
+        ← Volver a Biblioteca
+      </button>
 
       <h1>Estadísticas</h1>
 
