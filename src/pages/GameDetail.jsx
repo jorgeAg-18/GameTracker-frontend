@@ -91,7 +91,7 @@ export default function GameDetail() {
             style={{
               width: "100%",
               maxHeight: "400px",
-              objectFit: "cover",
+              objectFit: "contain",
               borderRadius: "8px",
               marginBottom: "20px",
             }}
