@@ -27,6 +27,8 @@ export default function GameCard({ game, onEdit, onDelete }) {
       <h3 style={{ marginBottom: "10px" }}>{game.title}</h3>
 
       <div style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "12px" }}>
+        <p><strong>Desarrollador:</strong> {game.developer || "N/A"}</p>
+        <p><strong>Año de lanzamiento:</strong> {game.releaseYear || "N/A"}</p>
         <p><strong>Plataforma:</strong> {game.platform || "N/A"}</p>
         <p><strong>Género:</strong> {game.genre || "N/A"}</p>
         <p><strong>Horas:</strong> {game.hoursPlayed}</p>
