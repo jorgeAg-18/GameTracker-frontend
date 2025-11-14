@@ -5,6 +5,9 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
     title: "",
     platform: "",
     genre: "",
+    developer: "",
+    releaseYear: new Date().getFullYear(),
+    description: "",
     hoursPlayed: 0,
     completed: false,
     rating: 0,
@@ -38,6 +41,9 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
       title: "",
       platform: "",
       genre: "",
+      developer: "",
+      releaseYear: new Date().getFullYear(),
+      description: "",
       hoursPlayed: 0,
       completed: false,
       rating: 0,
@@ -172,7 +178,105 @@ export default function GameForm({ onSubmit, initial = {}, onCancel }) {
         </div>
       </div>
 
-      {/* Fila 3: Horas y Calificación */}
+      {/* Fila 3: Developer y Release Year */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "15px" }}>
+        <div>
+          <label style={{ 
+            display: "block", 
+            marginBottom: "8px", 
+            fontWeight: "600", 
+            color: "var(--text-primary)",
+            fontSize: "14px",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px"
+          }}>
+            Desarrollador
+          </label>
+          <input 
+            name="developer" 
+            value={form.developer} 
+            onChange={handleChange} 
+            placeholder="Nombre del desarrollador" 
+            style={{
+              width: "100%",
+              padding: "12px",
+              border: "2px solid var(--border-color)",
+              borderRadius: "8px",
+              backgroundColor: "var(--input-bg)",
+              color: "var(--text-primary)",
+              fontSize: "14px",
+              transition: "all 0.3s ease"
+            }}
+          />
+        </div>
+        <div>
+          <label style={{ 
+            display: "block", 
+            marginBottom: "8px", 
+            fontWeight: "600", 
+            color: "var(--text-primary)",
+            fontSize: "14px",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px"
+          }}>
+            Año de Lanzamiento
+          </label>
+          <input 
+            type="number"
+            name="releaseYear" 
+            value={form.releaseYear} 
+            onChange={handleChange} 
+            min="1980"
+            max={new Date().getFullYear()}
+            style={{
+              width: "100%",
+              padding: "12px",
+              border: "2px solid var(--border-color)",
+              borderRadius: "8px",
+              backgroundColor: "var(--input-bg)",
+              color: "var(--text-primary)",
+              fontSize: "14px",
+              transition: "all 0.3s ease"
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Fila 4: Descripción */}
+      <div>
+        <label style={{ 
+          display: "block", 
+          marginBottom: "8px", 
+          fontWeight: "600", 
+          color: "var(--text-primary)",
+          fontSize: "14px",
+          textTransform: "uppercase",
+          letterSpacing: "0.5px"
+        }}>
+          Descripción
+        </label>
+        <textarea 
+          name="description" 
+          value={form.description} 
+          onChange={handleChange} 
+          placeholder="Escribe una descripción del juego..." 
+          rows="4"
+          style={{
+            width: "100%",
+            padding: "12px",
+            border: "2px solid var(--border-color)",
+            borderRadius: "8px",
+            backgroundColor: "var(--input-bg)",
+            color: "var(--text-primary)",
+            fontSize: "14px",
+            transition: "all 0.3s ease",
+            fontFamily: "inherit",
+            resize: "vertical"
+          }}
+        />
+      </div>
+
+      {/* Fila 5: Horas y Calificación */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "15px" }}>
         <div>
           <label style={{ 
