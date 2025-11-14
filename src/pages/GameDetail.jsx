@@ -102,6 +102,8 @@ export default function GameDetail() {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px", marginBottom: "20px" }}>
           <div>
+            <p><strong>Desarrollador:</strong> {game.developer || "N/A"}</p>
+            <p><strong>Año de lanzamiento:</strong> {game.releaseYear || "N/A"}</p>
             <p><strong>Plataforma:</strong> {game.platform || "N/A"}</p>
             <p><strong>Género:</strong> {game.genre || "N/A"}</p>
           </div>
@@ -126,6 +128,19 @@ export default function GameDetail() {
             </p>
           </div>
         </div>
+
+        {game.description && (
+          <div style={{ 
+            backgroundColor: "var(--card-bg)", 
+            padding: "16px", 
+            borderRadius: "8px", 
+            marginBottom: "20px",
+            borderLeft: "4px solid var(--primary)"
+          }}>
+            <h3 style={{ marginBottom: "10px" }}>Descripción</h3>
+            <p style={{ whiteSpace: "pre-wrap", lineHeight: "1.6" }}>{game.description}</p>
+          </div>
+        )}
       </div>
 
       <hr />
