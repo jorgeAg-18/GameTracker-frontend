@@ -13,7 +13,7 @@ export default function App() {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/GameTracker-frontend">
       <nav>
         <button onClick={handleLogoClick} className="logo" style={{ background: "none", border: "none", cursor: "pointer", padding: "0" }}>
           GameTracker
